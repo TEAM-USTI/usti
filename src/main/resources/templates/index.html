@@ -1,9 +1,57 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <title>index</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> </head>
+    <title>USTI</title>
+    <meta charset="UFT-8">
+    <script th:src="@{/js/jquery.min.js}"></script>
+    <meta name="Keywords" content="검색어">
+    <meta name="theme-color" content="#fedc61"/>
+    <meta name="description" content="USTI"/>
+    <style>
+        .title { font-weight: 600;
+            text-align: center;
+            font-size: 50px;}
+        .explain { text-align: center; }
+        .people { text-align: center; }
+        body { background-color: #fedc61; }
+        div#main { position: absolute;
+            left: 40%;
+            top: 10%; }
+        button{
+            width: 300px;
+            height: 100px;
+            color:black;
+            background: ivory;
+            font-size: 25px;
+            border: none;
+            border-radius: 20px;
+            transition: 0.3s;
+            position: absolute;
+            left: 50%;
+            top: 60%;
+            transform: translate(-50%, -50%);
+        }
+        button:focus { outline: 0; }
+        button:hover {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
 <body>
-index
+    <div id="main">
+        <p class="title">USTI</p>
+        <p class="explain">모든 대학생 모여라! 대학생 성격유형검사</p>
+        <p class="people" th:text="${count} + '명이 참여중입니다.'"/>
+    </div>
+    <button id="start">검사 시작!</button>
+
+    <div th:insert="common/footer.html" id="footer"></div>
 </body>
+
+<script th:inline="javascript">
+$("#start").click(function() {
+    location.href = "/question";
+});
+</script>
 </html>
