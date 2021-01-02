@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <script th:src="@{/js/jquery.min.js}"></script>
+    <title>USTI 대학생 성격 유형 검사</title>
+
+    <style>
+        body{
+            background-color: #fed461;
+        }
+        .title{
+            text-align: center;
+            background-color : #fed461;
+            color: black;
+            width: 500px;
+            height : 30px;
+            margin: auto;
+        }
+
+        .btn {
+            width:500px;
+            height: 50px;
+            margin: 10px auto auto auto;
+            border: none;
+            border-radius: 10px;
+            background-color: ivory;
+            text-align: center;
+        }
+
+        .btndiv{
+            margin: 10px auto auto auto;
+            text-align: center;
+        }
+        .qbox{
+            background-color: ivory;
+            border-radius: 10px;
+            width : 500px;
+            margin: 10px auto auto auto;
+            padding: 50px;
+            font-size: 40px;
+            line-height: 30px;
+            text-align: center;
+        }
+        .wrap{
+            background-color: #fed461;
+        }
+
+    </style>
+
+</head>
+
+<body>
+<div class="wrap">
+    <div class="title">
+        <h3> 대학생 성격 유형 검사 USTI </h3>
+    </div>
+
+    <div class="prograssbar">
+
+    </div>
+    <div class="qbox" id="question">
+    </div>
+    <div class="btndiv" id="choice">
+    </div>
+</div>
+
+<div th:insert="common/footer.html" id="footer"></div>
+</body>
+
+<script th:inline="javascript">
+let questions = /*[[${question}]]*/;
+let result = [0, 0, 0, 0, 0];
+const max = 8;
+
+$(document).ready(function() {
+    changeQuestion(0);
+});
+
+$(document).on("click", ".btn", function() {
+    let currentQid = $(this).data("qid");
+    $.each($(this).data("score").split(","), (idx, item) => result[idx] += Number(item));
+    if (currentQid !== max)
+        changeQuestion(currentQid + 1);
+    else {
+        let tid = result.indexOf(Math.max(...result));
+        postResult(tid);
+        getResult(tid);
+    }
+});
+
+function changeQuestion(qid) {
+    let choiceBtn = "";
+    let choiceArray = questions[qid].choice;
+    $("#question").text(questions[qid].content);
+    choiceArray.forEach(choice => {
+        choiceBtn += "<button class='btn' data-qid=" + choice.qid + " data-score='" + choice.score + "'>" + choice.content + "</button><br/>";
+    });
+    $("#choice").empty().append(choiceBtn);
+}
+
+function postResult(tid) {
+    $.ajax({
+        url: "/result",
+        type: "POST",
+        contentType:'application/json; charset=utf-8',
+        data: JSON.stringify({tid: tid}),
+        success: function() {
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+}
+
+function getResult(tid) {
+    $.ajax({
+        url: "/result/" + tid,
+        type: "GET",
+        data: tid,
+        success: function() {
+            location.href = "/result/" + tid;
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+}
+</script>
+</html>
