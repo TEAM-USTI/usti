@@ -13,6 +13,37 @@ cache:
 
 script: "./gradlew clean build"
 
+before_deploy:
+  - mkdir -p before-deploy
+  - cp scripts/*.sh before-deploy/
+  - cp appspec.yml before-deploy/
+  - cp build/libs/*.jar before-deploy/
+  - cd before-deploy && zip -r before-deploy *
+  - cd ../ && mkdir -p deploy
+  - mv before-deploy/before-deploy.zip deploy/usti-webservice.zip
+
+deploy:
+  - provider: s3
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
+    bucket: usti-build
+    region: ap-northeast-2
+    skip_cleanup: true
+    acl: private
+    local_dir: deploy
+    wait-until-deployed: true
+
+  - provider: codedeploy
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
+    bucket: usti-build
+    key: usti-webservice.zip
+    bundle_type: zip
+    application: usti-webservice
+    deployment_group: usti-webservice-group
+    region: ap-northeast-2
+    wait-until-deployed: true
+
 notification:
   email:
     recipients:
