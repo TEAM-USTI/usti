@@ -93,13 +93,10 @@
     </div>
     <h3>대학생 성격 유형 검사</h3>
 
-    <div class="type-image">
-
-    </div>
+    <img th:src="@{/images/} + ${type.tid} + @{.jpg}">
     <div class="messagebox">
-        <p>유형 이미지</p><br/>
-        <p th:text="'유형 이름 : ' + ${type.name}"/><br/>
-        <p th:text="'유형 설명 : ' + ${type.description}"/><br/>
+        <p th:text="${type.name}"/><br/>
+        <p th:text="${type.description}"/><br/>
     </div>
     <div class="btndiv">
         <button id="restart" class="btn">다시 검사 하기</button>
