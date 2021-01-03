@@ -16,7 +16,7 @@
         body{
           color: #4f3618;
           background-color: #fedc61;
-          bottom: 60px;
+          padding-bottom: 60px;
         }
         .endtitle{
             text-align: center;
@@ -70,6 +70,11 @@
         width: 200px;
       }
 
+      .share{
+          width: 90px;
+          margin: 8px;
+      }
+
       }
 
     </style>
@@ -89,15 +94,17 @@
         <p th:text="${type.description}"/><br/>
     </div>
     <div class="btndiv">
-        <button id="restart" class="btn">다시 검사 하기</button><br/>
-        <button id="clipboard" class="btn">링크 복사하기</button>
+        <button id="restart" class="btn">다시 검사 하기</button>
+    </div>
+    <div class="btndiv">
+        <button id="clipboard" class="btn share">링크 복사</button>
+        <button class="btn share">카톡 공유</button>
     </div>
 
-
+    <div th:insert="common/footer.html" id="footer"></div>
 </div>
-
-<div th:insert="common/footer.html" id="footer"></div>
 </body>
+
 
 <script th:inline="javascript">
 $("#restart").click(function() {
