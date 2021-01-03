@@ -60,9 +60,17 @@
             text-align:center;
         }
         #progress {
+            width: 200px;
             margin: 0 auto;
         }
-        @media screen and (max-width: 500px) {
+        meter::-webkit-meter-bar {
+            background: ivory;
+        }
+        meter::-webkit-meter-optimum-value {
+            background: saddlebrown;
+        }
+
+    @media screen and (max-width: 500px) {
           .qbox {
             width: 250px;
             font-size: 20px;
@@ -95,7 +103,7 @@
     </div>
 
     <div class="pbox">
-        <progress id="progress" value="0" max="9"></progress>
+        <meter id="progress" value="0" min="0" max="9"></meter>
     </div>
     <div class="qbox" id="question"></div>
     <div class="btndiv" id="choice"></div>
