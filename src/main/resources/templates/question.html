@@ -2,20 +2,24 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
     <script th:src="@{/js/jquery.min.js}"></script>
     <title>USTI 대학생 성격 유형 검사</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;800&display=swap" rel="stylesheet">
 
-    <style>
+  <style type="text/css">
+
+    * {
+  font-family: 'Nanum Gothic', sans-serif;
+  }
+
         body{
             background-color: #fed461;
         }
         .title{
             text-align: center;
-            background-color : #fed461;
-            color: black;
-            width: 500px;
-            height : 30px;
-            margin: auto;
+            color: #4f3618;
         }
 
         .btn {
@@ -26,6 +30,7 @@
             border-radius: 10px;
             background-color: ivory;
             text-align: center;
+            color: #4f3618;
         }
 
         .btndiv{
@@ -45,6 +50,26 @@
         .wrap{
             background-color: #fed461;
         }
+        @media screen and (max-width: 500px) {
+          .qbox {
+            width: 250px;
+            font-size: 20px;
+            line-height: 30px;
+            margin: 30px auto 0px auto;
+            padding: 20px;
+          }
+          .btn {
+            width: 200px;
+            color: #4f3618;
+            font-size: 20px;
+            line-height: 30px;
+            margin: 10px auto auto auto;
+          }
+          .title{
+          text-align: center;
+          font-size: 15px;
+          }
+        }
 
     </style>
 
@@ -53,10 +78,8 @@
 <body>
 <div class="wrap">
     <div class="title">
-        <h3> 대학생 성격 유형 검사 USTI </h3>
+        <h3> USTI <br/> 대학생 성격 유형 검사 </h3>
     </div>
-
-    <div class="prograssbar">
 
     </div>
     <div class="qbox" id="question">
