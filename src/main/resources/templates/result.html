@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" >
     <script th:src="@{/js/jquery.min.js}"></script>
+    <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
     <title>USTI 대학생 성격 유형 검사</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;800&display=swap" rel="stylesheet">
@@ -98,9 +99,10 @@
     </div>
     <div class="btndiv">
         <button id="clipboard" class="btn share">링크 복사</button>
-        <button class="btn share">카톡 공유</button>
+        <a id="kakao-link-btn" href="javascript:sendLink()">
+            <img src="//developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png"/>
+        </a>
     </div>
-
     <div th:insert="common/footer.html" id="footer"></div>
 </div>
 </body>
@@ -120,6 +122,36 @@ $('#clipboard').on('click', function() {
     $temp.remove();
     alert("결과 공유 링크가 복사되었습니다!");
 })
+
+let type = /*[[${type}]]*/;
+let img = window.location.origin + '/images/' + type.tid + '.png';
+console.log(img);
+//<![CDATA[
+Kakao.init('ff18df91ad4460bd2b2c2c9db274b7c8');
+Kakao.Link.createDefaultButton({
+    container: '#kakao-link-btn',
+    objectType: 'feed',
+    content: {
+        title: type.name,
+        imageUrl: img,
+        link: {
+            mobileWebUrl: $url,
+            webUrl: $url
+        }
+    },
+    buttons: [
+        {
+            title: '자세히보기',
+            link: {
+                mobileWebUrl: $url,
+                webUrl: $url
+            }
+        }
+    ]
+});
+//]]>
+
+
 
 </script>
 </html>
