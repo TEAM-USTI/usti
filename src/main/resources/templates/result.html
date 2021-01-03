@@ -27,8 +27,9 @@
         .btn {
             color: #4f3618;
             text-align: center;
-            width:500px;
-            height: 50px;
+            width:250px;
+            height: 69px;
+            line-height: 69px;
             margin: auto;
             border-radius: 10px;
             border: none;
@@ -38,9 +39,15 @@
             background-color: #eeece3;
             cursor: pointer;
         }
-        .btndiv{
+        .outer{
+            width: 450px;
             margin: 10px auto auto auto;
-            text-align: center;
+            height: 69px;
+            display: inline-flex;
+        }
+        .inner{
+            display: inline-block;
+            margin: auto;
         }
         .messagebox{
             background-color: ivory;
@@ -68,14 +75,19 @@
       }
 
       .btn{
-        width: 200px;
+        width: 100px;
       }
-
-      .share{
-          width: 90px;
-          margin: 8px;
+     }
+      #clipboard {
+          background: url('/images/share.png') no-repeat;
+          cursor: pointer;
+          border: none;
+          width: 68px;
+          height: 69px;
       }
-
+      #kakao-link-btn {
+          height: 69px;
+          line-height: 69px;
       }
 
     </style>
@@ -94,14 +106,12 @@
         <p th:text="${type.name}"/><br/>
         <p th:text="${type.description}"/><br/>
     </div>
-    <div class="btndiv">
-        <button id="restart" class="btn">다시 검사 하기</button>
-    </div>
-    <div class="btndiv">
-        <button id="clipboard" class="btn share">링크 복사</button>
-        <a id="kakao-link-btn" href="javascript:sendLink()">
+    <div class="outer">
+        <div class="inner"><button id="restart" class="btn">다시 검사 하기</button></div>
+        <div class="inner"><button id="clipboard" class="btn"></button></div>
+        <div class="inner"><a id="kakao-link-btn" href="javascript:sendLink()">
             <img src="//developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png"/>
-        </a>
+        </a></div>
     </div>
     <div th:insert="common/footer.html" id="footer"></div>
 </div>
@@ -125,14 +135,13 @@ $('#clipboard').on('click', function() {
 
 let type = /*[[${type}]]*/;
 let img = window.location.origin + '/images/' + type.tid + '.png';
-console.log(img);
-//<![CDATA[
 Kakao.init('ff18df91ad4460bd2b2c2c9db274b7c8');
 Kakao.Link.createDefaultButton({
     container: '#kakao-link-btn',
     objectType: 'feed',
     content: {
-        title: type.name,
+        title: '당신의 타입은? ' + type.name,
+        description: '모든 대학생 모여라!\n대학생 성격유형검사 USTI',
         imageUrl: img,
         link: {
             mobileWebUrl: $url,
@@ -149,9 +158,5 @@ Kakao.Link.createDefaultButton({
         }
     ]
 });
-//]]>
-
-
-
 </script>
 </html>
