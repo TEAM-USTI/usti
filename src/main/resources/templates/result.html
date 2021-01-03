@@ -2,20 +2,24 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
     <script th:src="@{/js/jquery.min.js}"></script>
     <title>USTI 대학생 성격 유형 검사</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;800&display=swap" rel="stylesheet">
 
-    <style>
+    <style type="text/css">
+      * {
+    font-family: 'Nanum Gothic', sans-serif;
+    }
+
         body{
-            background-color: #fed461;
+          color: #4f3618;
+          background-color: #fed461;
         }
         .endtitle{
             text-align: center;
             background-color : #fed461;
-            color: black;
-            width: 500px;
-            height : 30px;
-            margin: auto;
         }
 
         .type-image{
@@ -28,12 +32,14 @@
         }
 
         .btn {
+            color: #4f3618;
+            text-align: center;
             width:500px;
             height: 50px;
             margin: auto;
             border-radius: 10px;
+            border: none;
             background-color: ivory;
-            text-align: center;
         }
         .btndiv{
             margin: 10px auto auto auto;
@@ -52,6 +58,25 @@
         .wrap{
             text-align: center;
         }
+     @media screen and (max-width: 500px) {
+      .messagebox{
+        width: 250px;
+        font-size: 12px;
+        line-height: 30px;
+        margin: 30px auto 0px auto;
+        padding: 20px;
+      }
+      .wrap {
+        font-size: 15px;
+      }
+      .type-image{
+        margin: auto;
+      }
+      .btn{
+        width: 200px;
+      }
+
+      }
 
     </style>
 
