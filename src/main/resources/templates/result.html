@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <script th:src="@{/js/jquery.min.js}"></script>
+    <title>USTI 대학생 성격 유형 검사</title>
+
+    <style>
+        body{
+            background-color: #fed461;
+        }
+        .endtitle{
+            text-align: center;
+            background-color : #fed461;
+            color: black;
+            width: 500px;
+            height : 30px;
+            margin: auto;
+        }
+
+        .type-image{
+            width: 200px;
+            height: 200px;
+            background-image: url('');
+            background-size : cover;
+            background-position: center;
+            margin: 100px auto 0px auto;
+        }
+
+        .btn {
+            width:500px;
+            height: 50px;
+            margin: auto;
+            border-radius: 10px;
+            background-color: ivory;
+            text-align: center;
+        }
+        .btndiv{
+            margin: 10px auto auto auto;
+            text-align: center;
+        }
+        .messagebox{
+            background-color: ivory;
+            width : 450px;
+            border-radius: 10px;
+            margin: auto;
+            padding: 30px;
+            font-size: 20px;
+            line-height: 30px;
+            text-align: center;
+        }
+        .wrap{
+            text-align: center;
+        }
+
+    </style>
+
+</head>
+
+<body>
+<div class="wrap">
+    <div class="endtitle">
+        <h1> USTI </h1>
+    </div>
+    <h3>대학생 성격 유형 검사</h3>
+
+    <div class="type-image">
+
+    </div>
+    <div class="messagebox">
+        <p>유형 이미지</p><br/>
+        <p th:text="'유형 이름 : ' + ${type.name}"/><br/>
+        <p th:text="'유형 설명 : ' + ${type.description}"/><br/>
+    </div>
+    <div class="btndiv">
+        <button id="restart" class="btn">다시 검사 하기</button>
+    </div>
+</div>
+
+<div th:insert="common/footer.html" id="footer"></div>
+</body>
+
+<script th:inline="javascript">
+$("#restart").click(function() {
+    location.href = "/";
+});
+</script>
+</html>

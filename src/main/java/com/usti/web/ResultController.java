@@ -1,5 +1,6 @@
 package com.usti.web;
 
+import com.usti.domain.result.Result;
 import com.usti.service.ResultService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -15,5 +16,11 @@ public class ResultController {
     public String index(Model model) {
         model.addAttribute("count", resultService.count());
         return "index";
+    }
+
+    @PostMapping("/result")
+    public String save(@RequestBody Result result) {
+        resultService.save(result);
+        return "question";
     }
 }

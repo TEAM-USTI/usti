@@ -1,5 +1,6 @@
 package com.usti.service;
 
+import com.usti.domain.result.Result;
 import com.usti.domain.result.ResultRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -13,5 +14,10 @@ public class ResultService {
     @Transactional(readOnly = true)
     public long count() {
         return resultRepository.count();
+    }
+
+    @Transactional
+    public void save(Result result) {
+        resultRepository.save(result);
     }
 }
