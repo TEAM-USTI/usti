@@ -18,17 +18,17 @@
             font-size: 50px;
             position: absolute;
             left: 50%;
-            top: 20%; 
+            top: 25%; 
             transform: translate(-50%, -50%); }
         .explain { text-align: center;
             position: absolute;
             left: 50%;
-            top: 40%; 
+            top: 47%; 
             transform: translate(-50%, -50%); }
         .people { text-align: center; 
             position: absolute;
             left: 50%;
-            top: 45%; 
+            top: 52%; 
             transform: translate(-50%, -50%);}
         body { background-color: #fedc61; }
         button{
@@ -42,7 +42,7 @@
             transition: 0.3s;
             position: absolute;
             left: 50%;
-            top: 62%; 
+            top: 67%; 
             transform: translate(-50%, -50%);
             font-family: 'Nanum Gothic', sans-serif;
                color: #4f3618;
@@ -57,7 +57,7 @@
 
 <body>
     <div id="main">
-        <p class="title">USTI</p>
+        <img class="title" src="https://github.com/TEAM-USTI/usti/blob/master/src/main/resources/static/images/logo.png?raw=true">
         <p class="explain">모든 대학생 모여라! 대학생 성격유형검사</p>
         <p class="people" th:text="${count} + '명이 참여중입니다.'"></p>
         <button id="start">검사 시작!</button>
