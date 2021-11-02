@@ -1,4 +1,4 @@
-package com.usti.domain.question;
+package com.usti.question;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

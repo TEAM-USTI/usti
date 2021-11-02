@@ -1,6 +1,6 @@
-package com.usti.web;
+package com.usti.question;
 
-import com.usti.service.QuestionService;
+import com.usti.question.QuestionService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

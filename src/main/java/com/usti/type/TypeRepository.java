@@ -1,4 +1,4 @@
-package com.usti.domain.type;
+package com.usti.type;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

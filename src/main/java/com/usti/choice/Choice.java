@@ -1,4 +1,4 @@
-package com.usti.domain.choice;
+package com.usti.choice;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

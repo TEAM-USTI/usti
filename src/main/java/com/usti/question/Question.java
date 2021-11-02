@@ -1,6 +1,6 @@
-package com.usti.domain.question;
+package com.usti.question;
 
-import com.usti.domain.choice.Choice;
+import com.usti.choice.Choice;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 

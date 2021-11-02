@@ -1,4 +1,4 @@
-package com.usti.domain;
+package com.common;
 
 import lombok.Getter;
 import org.springframework.data.annotation.CreatedDate;

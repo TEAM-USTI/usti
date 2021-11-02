@@ -1,6 +1,6 @@
-package com.usti.domain.result;
+package com.usti.result;
 
-import com.usti.domain.BaseTimeEntity;
+import com.common.BaseTimeEntity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 

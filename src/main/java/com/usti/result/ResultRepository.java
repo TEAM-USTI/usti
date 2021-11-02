@@ -1,4 +1,4 @@
-package com.usti.domain.result;
+package com.usti.result;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

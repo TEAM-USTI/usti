@@ -1,6 +1,5 @@
-package com.usti.web;
+package com.usti.type;
 
-import com.usti.service.TypeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

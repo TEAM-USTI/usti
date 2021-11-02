@@ -1,7 +1,5 @@
-package com.usti.web;
+package com.usti.result;
 
-import com.usti.domain.result.Result;
-import com.usti.service.ResultService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

@@ -1,7 +1,7 @@
-package com.usti.service;
+package com.usti.question;
 
-import com.usti.domain.question.Question;
-import com.usti.domain.question.QuestionRepository;
+import com.usti.question.Question;
+import com.usti.question.QuestionRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

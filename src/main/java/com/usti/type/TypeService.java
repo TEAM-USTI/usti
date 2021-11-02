@@ -1,7 +1,5 @@
-package com.usti.service;
+package com.usti.type;
 
-import com.usti.domain.type.Type;
-import com.usti.domain.type.TypeRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
